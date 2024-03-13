@@ -1,0 +1,352 @@
+<div class="home all-phones-new" ng-init="initPageLoad()">
+  <div class="loadingDiv" ng-show="vm.loading">
+    <div class="row">
+      <div class="col-md-12 p-t-20">
+        <center>
+          <strong>Processing Please Wait</strong>
+          <img src="../../content/img/Loading2.gif" style="width:50px" />
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!-- Name search and buttons-->
+  <div class="row p-t-10">
+    <div class="col-md-4 col-sm-6">
+      <span ng-click="refreshPage()" id="refreshButton"><i class="glyphicon glyphicon-refresh"></i></span>
+      <span class="header-filter-title">Nome</span>
+      <input id="customer-filter" />
+      <span ng-click="showHideDetails()" ng-show="!vm.visible_details" class="m-l-5 m-t-10"><i
+          class="glyphicon glyphicon-chevron-down cursor-pointer"></i></span>
+      <span ng-click="showHideDetails()" ng-show="vm.visible_details" class="m-l-5 m-t-10"><i
+          class="glyphicon glyphicon-chevron-up cursor-pointer"></i></span>
+      <span ng-click="addNewPhone()" ng-show="vm.customer.Id != -1" class="m-l-5 m-t-10 cursor-pointer"><i
+          class="glyphicon glyphicon-plus"></i></span>
+    </div>
+    <div class="col-md-8 col-sm-6">
+      <button class="btn btn-info">on</button>
+      <button class="btn btn-warning"><i>&#9873;</i></button>
+      <button class="btn btn-primary"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i></button>
+      <button class="btn btn-primary">⚐<i aria-hidden="true"></i></button>
+      <button class="btn btn-primary"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></button>
+      <button class="btn btn-primary"><i class="glyphicon glyphicon-remove-circle uncheckcircle"></i></button>
+    </div>
+  </div>
+
+  <!-- Person detail box-->
+  <div ng-show="vm.visible_details">
+    <!-- Total Linhas -->
+    <div class="row p-t-10">
+      <div class="col-md-12">
+        <button type="button" class="btn btn-info btn-xs m-l-10" ng-click="refreshTotalLinhas()"><i
+            class="fa fa-refresh"></i></button>
+        <span class="header-detail m-l-10">Total Linhas : </span>
+        <span class="m-l-10">{{vm.total_linhas}}</span>
+        <span class="header-detail m-l-30">Preco Unico : </span>
+        <input id="preco_unico" class="w-50px" type="number" />
+        <button type="button" class="btn btn-info btn-xs m-l-10" ng-click="updatePrecoUnico()">Update</button>
+      </div>
+    </div>
+    <div class="row p-t-10">
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Telefone Atual de Contato : </span>
+        <span class="click-to-copy" title="Click to copy number"
+          ng-click="copyToClip(vm.detail_phone)">{{vm.detail_phone}}</span>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Email : </span>
+        <span class="click-to-copy" title="Click to copy email"
+          ng-click="copyToClip(vm.detail_email)">{{vm.detail_email}}</span>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">CPF(CNPJ) : </span>
+        <span class="click-to-copy" title="Click to copy email"
+          ng-click="copyToClip(vm.detail_cpf)">{{vm.detail_cpf}}</span>
+      </div>
+    </div>
+    <div class="row p-t-10 border-bottom-blue">
+      <div class="col-md-12">
+        <span class="header-detail">Nome Pai : </span>
+        <span class="click-to-copy" title="Click to copy name"
+          ng-click="copyToClip(vm.detail_nomePai)">{{vm.detail_nomePai}}</span>
+        <!-- <span class="m-l-30 header-detail">Atualize o Pai : </span>
+        <span class="click-to-copy" title="Click to copy Atualize o Pai"
+          ng-click="copyToClip(vm.detail_atualize)">{{vm.detail_atualize}}</span> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span class="header-detail">Endereço Cep : </span>
+        <span class="click-to-copy" title="Click to copy Cep"
+          ng-click="copyToClip(vm.detail_cep)">{{vm.detail_cep}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Rua : </span>
+        <span class="click-to-copy" title="Click to copy Rua"
+          ng-click="copyToClip(vm.detail_rua)">{{vm.detail_rua}}</span>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Numero : </span>
+        <span class="click-to-copy" title="Click to copy Numero"
+          ng-click="copyToClip(vm.detail_numero)">{{vm.detail_numero}}</span>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Complemento : </span>
+        <span class="click-to-copy" title="Click to copy Complemento"
+          ng-click="copyToClip(vm.detail_complemento)">{{vm.detail_complemento}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Bairro : </span>
+        <span class="click-to-copy" title="Click to copy Bairro"
+          ng-click="copyToClip(vm.detail_bairro)">{{vm.detail_bairro}}</span>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Cidade : </span>
+        <span class="click-to-copy" title="Click to copy Cidade"
+          ng-click="copyToClip(vm.detail_cidade)">{{vm.detail_cidade}}</span>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <span class="header-detail">Estado : </span>
+        <span class="click-to-copy" title="Click to copy Estado"
+          ng-click="copyToClip(vm.detail_estado)">{{vm.detail_estado}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AG grid -->
+  <div class="row p-t-10">
+    <div class="col-md-12">
+      <div style="width:100%; height:{{vm.grdHeight}}px;" ag-grid="vm.grdMainOption" class="ag-theme-balham ag-basic">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- activate confirmation modal -->
+<div id="activate_confirm_modal" class="custom-message-modal w-30">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Quer desassociar esta linha do cliente?</h4>
+    </div>
+  </div>
+  <div class="row m-t-10">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <button type="button" ng-click="activatePhone(true)" class="btn btn-danger btn-xs">Sim, disassociar</button>
+        <button type="button" ng-click="cancelActivate()" class="btn btn-default btn-xs">Não, cancelaação</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- deactivate confirmation modal -->
+<div id="deactivate_confirm_modal" class="custom-message-modal w-30">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Quer associar esta linha ao cliente?</h4>
+    </div>
+  </div>
+  <div class="row m-t-10">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <button type="button" ng-click="activatePhone(false)" class="btn btn-danger btn-xs">Sim, disassociar</button>
+        <button type="button" ng-click="cancelActivate()" class="btn btn-default btn-xs">Não, cancelaação</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add new service -->
+<div id="service_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Existing Services</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <label>Services</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"> <input id="phoneServices" style="width: 100%" /></div>
+          <div class="col-md-3">
+            <button class="btn btn-info btn2" ng-click="addService()" type="button">Add</button>
+          </div>
+        </div>
+        <div class="row p-t-20">
+          <div class="col-md-12 grid-container2">
+            <label>Selected Services</label>
+            <div style="width:100%; height:400px;" ag-grid="vm.grdServiceOption" class="ag-theme-balham ag-basic">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Assign modal -->
+<div id="assign_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog w-70">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Assign customer -- {{vm.phone.CompletePhone}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <span>Operator : </span>
+              <input id="assign_operator" />
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <span>Phone plan : </span>
+              <input id="assign_plan" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <span>Preco Vip : </span>
+              <input type="number" id="assign_preco" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <span>Apelido : </span>
+              <input id="assign_apelido" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div style="width:100%; height:400px;" ag-grid="vm.grdAssignOption" class="ag-theme-balham ag-basic"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit modal -->
+<div id="edit_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="edit_title">Edit Information</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Customer information -->
+        <!-- Name -->
+        <div class="row">
+          <div class="col-md-4">
+            <span class="pull-right">Customer Name : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="customer_name" class="w-100" value="{{vm.customer.Name}}" readonly />
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Email : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="customer_email" class="w-100" value="{{vm.customer.Email}}" readonly />
+          </div>
+        </div>
+        <!-- Document Number -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Document Number : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="customer_document" class="w-100" value="{{vm.customer.DocumentNumber}}" readonly />
+          </div>
+        </div>
+        <!-- NickName -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Nick Name : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="customer_nickname" class="w-100" value="{{vm.customer.NickName}}" readonly />
+          </div>
+        </div>
+        <!-- Parent -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Parent : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="customer_document" class="w-100" value="{{vm.customer.Parent}}" readonly />
+          </div>
+        </div>
+        <!-- Phone information -->
+        <!-- Phone Number -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Phone Number : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="edit_phone_input" class="w-100" readonly ng-show="vm.phoneMode == 0" />
+            <div ng-show="vm.phoneMode != 0">
+              <input id="edit_phone_list" class="w-100" />
+            </div>
+            <input id="edit_phone_new" class="w-100" ng-show="vm.phoneMode == 1" />
+          </div>
+        </div>
+        <!-- Operator -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Operator : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="edit_operator" class="w-100" />
+          </div>
+        </div>
+        <!-- Phone Plan -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Phone plan : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="edit_plan" class="w-100" />
+          </div>
+        </div>
+        <!-- Preco Vip -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Preco Vip : </span>
+          </div>
+          <div class="col-md-8">
+            <input type="number" id="edit_preco" class="w-100" />
+          </div>
+        </div>
+        <!-- Apelido -->
+        <div class="row m-t-10">
+          <div class="col-md-4">
+            <span class="pull-right">Apelido : </span>
+          </div>
+          <div class="col-md-8">
+            <input id="edit_apelido" class="w-100" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="savePhoneInfo()">Save changes</button>
+        <button type="button" class="btn ngdialog-button-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

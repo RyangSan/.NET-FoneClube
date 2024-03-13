@@ -1,0 +1,161 @@
+.mass-charging-container {   
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;     
+    flex-direction: column;                         
+    background-color: $background-default;
+
+    .no-outline {
+        outline: none !important;
+    }
+
+    .floating-button {
+        margin: 0px;
+        position: fixed;
+        bottom: 7vh;
+    }
+    
+    .check-all {
+        margin-bottom: 22px;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        width: 159px;
+    }
+
+
+    .simple-toast {
+        position: absolute;
+        width: 70%;
+        height: 42px;
+        top: 38px;
+        background-color: rgba(0, 0, 0, 0.52);
+        border-radius: 8px;
+        color: #d4d3d3;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        align-self: center;
+        font-size: 16px;
+
+        p {
+            margin: 0px !important;
+        }
+    }
+
+    .striped:nth-child(odd) {
+        background-color: #dedede;
+    }
+
+    .row-cliente {
+        background-color: #c1ffc1;
+        border-radius: 3px;
+        min-height: 143px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        width: 100%;
+        position: relative;
+
+        .cliente {
+            position: absolute;
+            display: block;
+            top: 4px;
+            left: 10px;
+        }
+
+        .linhas {
+            display: flex;
+            flex-direction: column;
+            min-width: 400px;
+            width: 40%;
+
+            .linha {
+                display: flex;
+                flex-direction: row;
+            }
+            .linha-number {
+                margin-right: 10px;
+                margin-left: 20px;
+                width: 104px;
+            }
+
+            .linha-nickname {
+                margin-right: 10px;
+                width: 150px;
+            }
+            
+            .linha-valor {
+                margin-right: 10px;
+                width: 60px;
+            }
+        }
+
+        .payment-set {
+            min-width: 370px;
+            width: 40%;
+
+            .form-control {
+                font-size: 13px !important;
+                height: 30px !important;
+                width: 180px !important;
+            }
+
+            label {
+                width: 150px;
+            }
+
+            .column-payment {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 3px;
+            }
+        }
+
+        .button-box {
+            width: 20%;
+        }
+    
+
+    
+        .checkbox {
+            outline: none !important;
+            margin-left: 4px;
+        }
+    }
+
+    .botao-cobrar-cliente {
+        width: 180px;
+        outline: none;
+        margin-right: 6px;
+    }
+
+    .btn-buscar {
+        margin-left: 15px;
+    }
+
+    .no-data {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    .margin-top {
+        margin-top: 42px;
+    }
+
+    .btn-cobranca-massa {
+        margin-top: 40px;
+    }
+
+    button {
+        outline: none;
+    }
+
+}

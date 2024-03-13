@@ -1,0 +1,127 @@
+.all-phones-new {
+
+  .loadingDiv {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0%;
+    width: 100%;
+    z-index: 1050;
+    height: 50px;
+    border: 1px solid #d6e9c6;
+    background: #dff0d8;
+  }
+
+  .header-filter-title {
+    color: rgb(179, 28, 28);
+  }
+
+  .click-to-copy {
+    color: rgb(141, 83, 17);
+  }
+
+  .click-to-copy:hover {
+    color: rgb(221, 164, 99);
+    cursor: pointer;
+  }
+
+  .header-detail {
+    color: rgb(21, 21, 192);
+  }
+
+  #customer-filter {
+    min-width: 400px;
+  }
+
+  .k-dropdown {
+    min-width: 300px;
+  }
+
+  .phone-services {
+    float: left;
+    list-style: none;
+    color: #007bff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #007bff;
+    border-radius: .25rem;
+    border: 1px solid transparent;
+  }
+
+  #refreshButton {
+    cursor: pointer;
+
+    :hover {
+      color: #424242;
+    }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.custom-modal {
+  z-index: 100;
+  top: 10%;
+  left: 10%;
+  position: absolute;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  padding: 10px;
+  padding-bottom: 20px;
+  display: none;
+}
+
+.custom-message-modal {
+  z-index: 100;
+  top: 20%;
+  left: 25%;
+  position: absolute;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  padding: 10px;
+  padding-bottom: 20px;
+  display: none;
+}
+.w-100 {
+  width: 100%!important;
+}
+
+.w-70 {
+  width: 70%;
+}
+.w-45 {
+  width: 45%;
+}
+.w-50 {
+  width: 50%;
+}
+
+.w-50px {
+  width: 50px;
+}
+
+#assign_modal .form-group {
+  margin-bottom: 5px;
+}
+
+.modal-title {
+  margin-left: 20px;
+}

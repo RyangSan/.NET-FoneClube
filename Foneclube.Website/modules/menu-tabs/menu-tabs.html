@@ -1,0 +1,60 @@
+<div class="menu-container">
+    <div ng-class="{'menu-open': vm.compress && !vm.mobile, 'menu-close': (!vm.compress && !vm.mobile) || (vm.mobile && vm.compressMobile), 'menu-close-mobile': vm.mobile && !vm.compressMobile}"> 
+        <div class="menu-item logo" ng-click="vm.menuCompress()">            
+            <div>
+                <img src="./content/img/pi-logo.png" >
+                <span> FoneClube </span>                              
+            </div>
+        </div> 
+        <div title="Home" class="menu-item" ng-class="{'item-menu-active': vm.menuItemActive == 'home'}" ng-click="vm.setMenuItemActive('home')">            
+            <div>
+                <i class="glyphicon glyphicon-home" aria-hidden="true"></i>            
+                <span> Home </span>
+            </div>
+        </div>
+        <div title="Cadastro" class="menu-item" ng-class="{'item-menu-active': vm.menuItemActive == 'cadastro'}"  ng-click="vm.setMenuItemActive('cadastro')">  
+            <div>
+                <i class="fa fa-user-plus" aria-hidden="true"></i>            
+                <span> Cadastro </span>
+            </div>
+            <div style="display:none"></div>
+<!-------------------------------------->
+
+
+        </div>  
+        <div title="Pagar.me" class="menu-item" ng-class="{'item-menu-active': vm.menuItemActive == 'list-customer'}" ng-click="vm.setMenuItemActive('list-customer')">     
+            <div>       
+                <i class="fa fa-rub" aria-hidden="true"></i><i class="fa fa-maxcdn" aria-hidden="true"></i>           
+                <span> Pagar.me </span>
+            </div>
+        </div>  
+        <div title="Clientes" class="menu-item" ng-class="{'item-menu-active': vm.menuItemActive == 'customers'}"  ng-click="vm.setMenuItemActive('customers')">            
+            <div>
+                <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>            
+                <span> Clientes </span>
+            </div>
+        </div>   
+        <div title="Cobrança Massiva" class="menu-item" ng-class="{'item-menu-active': vm.menuItemActive == 'mass-charging'}"  ng-click="vm.setMenuItemActive('mass-charging')">            
+            <div>
+                <i class="glyphicon glyphicon-credit-card" aria-hidden="true"></i>            
+                <span> Cobrança Massiva </span>
+            </div>
+        </div>     
+
+         <div title="Status Pagamentos" class="menu-item" ng-class="{'item-menu-active': vm.menuItemActive == 'status-charging'}"  ng-click="vm.setMenuItemActive('status-charging')">            
+            <div>
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>            
+                <span> Status Pagamentos </span>
+            </div>
+        </div>  
+        <div title="All Phone Lines" class="menu-item" ng-class="{'item-menu-active': vm.menuItemActive == 'allphone-lines'}"  ng-click="vm.setMenuItemActive('allphone-lines')">            
+                <div>
+                    <i class="glyphicon glyphicon-phone" aria-hidden="true"></i>          
+                    <span> All Phones </span>
+                </div>
+            </div> 
+    </div>  
+     
+    <div class="menu-views" ui-view name="menu-tab">                            
+    </div>
+</div>
